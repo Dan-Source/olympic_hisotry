@@ -201,4 +201,3 @@ class Common(Configuration):
     }
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

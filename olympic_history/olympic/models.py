@@ -46,16 +46,25 @@ class Athlete(models.Model):
         return f'{self.name}'
 
 class Sport(models.Model):
-    sport = models.CharField(verbose_name="Event", max_length=200)
+    sport = models.CharField(verbose_name="Sport", max_length=200)
+
+    def __str__(self):
+        return f'{self.sport}'
 
 class City(models.Model):
     city = models.CharField(verbose_name="City", max_length=200)
+
+    def __str__(self):
+        return f'{self.city}'
 
 class Event(models.Model):
     event = models.CharField(verbose_name="Event", max_length=200)
     sport = models.ForeignKey(Sport, on_delete=models.CASCADE, related_name='sports')
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='cities')
     games = models.ForeignKey(Games, on_delete=models.CASCADE, related_name='games')
+
+    def __str__(self):
+        return f'{self.event}'
 
 class AthleteEvent(models.Model):
     athlete = models.ForeignKey(Athlete, on_delete=models.CASCADE, related_name='atheltes')
@@ -86,4 +95,12 @@ class AthleteEvent(models.Model):
         ("NA", "NA"),
     )
     medal = models.CharField(verbose_name="Medal", max_length=6, choices=MEDAL)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='events')
+
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        related_name='events'
+    )
+
+    def __str__(self):
+        return f'{self.athlete} - {self.event}'
