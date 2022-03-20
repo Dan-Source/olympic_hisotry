@@ -22,13 +22,13 @@ class Games(models.Model):
     )
     season = models.CharField(verbose_name="Season", max_length=6, choices=SEASON)
 
-    # @property
-    # @admin.display(
-    #     ordering='year',
-    #     description='Games Year and Season',
-    # )
-    # def games(self):
-    #     return f'{self.year} {self.season}'
+    @property
+    @admin.display(
+        ordering='year',
+        description='Games Year and Season',
+    )
+    def games(self):
+        return f'{self.year} {self.season}'
 
     def __str__(self):
         return f'{self.year} {self.season}'
