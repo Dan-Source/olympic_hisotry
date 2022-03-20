@@ -1,5 +1,6 @@
 import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib import admin
 from django.db import models
 
 def current_year():
@@ -12,7 +13,8 @@ class Games(models.Model):
     year = models.IntegerField(
         verbose_name="Year",
         validators=[MinValueValidator(1896),
-        max_value_current_year])
+        max_value_current_year]
+    )
 
     SEASON = (
         ("Summer", "Summer"),
@@ -20,12 +22,16 @@ class Games(models.Model):
     )
     season = models.CharField(verbose_name="Season", max_length=6, choices=SEASON)
 
-    @property
-    def games(self):
-        return f'{self.year} {self.season}'
+    # @property
+    # @admin.display(
+    #     ordering='year',
+    #     description='Games Year and Season',
+    # )
+    # def games(self):
+    #     return f'{self.year} {self.season}'
 
     def __str__(self):
-        return f'{self.games}'
+        return f'{self.year} {self.season}'
 
 class Team(models.Model):
     team = models.CharField(verbose_name="Team", max_length=70)
@@ -72,7 +78,7 @@ class AthleteEvent(models.Model):
     weight = models.DecimalField(
         verbose_name='Weight',
         decimal_places=2,
-        max_digits=3,
+        max_digits=5,
         null=True,
         blank=True
     )

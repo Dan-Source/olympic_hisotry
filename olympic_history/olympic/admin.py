@@ -11,7 +11,7 @@ from .models import (
 
 @admin.register(Games)
 class GamesAdmin(admin.ModelAdmin):
-    list_display = ['id', 'games']
+    list_display = ('id', 'year', 'season')
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
