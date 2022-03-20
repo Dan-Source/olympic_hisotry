@@ -21,29 +21,29 @@ from .serializers import (
 )
 
 class AthleteViewSet(ModelViewSet):
-    serializers_class = AtheleteSerializer
+    serializer_class = AtheleteSerializer
     queryset = Athlete.objects.all().order_by('name')
 
 class AthleteEventViewSet(ModelViewSet):
-    serializers_class = AthleteEventSerializer
+    serializer_class = AthleteEventSerializer
     queryset = AthleteEvent.objects.all()
 
 class CityViewSet(ModelViewSet):
-    serializers_class = CitySerializer
+    serializer_class = CitySerializer
     queryset = City.objects.all()
 
 class EventViewSet(ModelViewSet):
-    serializers_class = EventSerializer
+    serializer_class = EventSerializer
     queryset = Event.objects.all()
 
 class GamesViewSet(ModelViewSet):
-    serializers_class = GamesSerializer
+    serializer_class = GamesSerializer
     queryset = Games.objects.all()
 
 class TeamViewSet(ModelViewSet):
-    serializers_class = TeamSerializer
+    serializer_class = TeamSerializer
     queryset = Team.objects.all()
 
 class SportViewSet(ModelViewSet):
-    serializers_class = SportSerializer
+    serializer_class = SportSerializer
     queryset = Sport.objects.all()
