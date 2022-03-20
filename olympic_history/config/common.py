@@ -201,4 +201,15 @@ class Common(Configuration):
         )
     }
 
+    SWAGGER_SETTINGS = {
+        'SECURITY_DEFINITIONS': {
+            'basic': {
+                'type': 'basic'
+            }
+        },
+        'LOGIN_URL': 'rest_framework:login',
+        'LOGOUT_URL': 'rest_framework:logout',
+    }
+
+
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
