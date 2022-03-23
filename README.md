@@ -4,6 +4,10 @@
 
 Este projeto foi feito com base no cookiecutter, que facilita o desenvolvimento e prapara o ambiente com a configurações de banco de dados e bibliotecas, e um padrão para organização dos modulos.
 
+## Sobre o que é este projeto:
+
+É uma API para consultar os dados baseados no [120 Years of Olympic Hystory](https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results#%20athlete_events.csv)
+
 # Prerequisites
 
 Optei por desenvolver o projeto dentro de um container. O que facilita o desenvolvimento.
