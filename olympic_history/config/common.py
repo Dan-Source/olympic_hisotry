@@ -3,6 +3,7 @@ from os.path import join
 from distutils.util import strtobool
 import dj_database_url
 from configurations import Configuration
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -21,10 +22,11 @@ class Common(Configuration):
         'rest_framework',            # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
         'django_filters',            # for filtering rest endpoints
+        'drf_yasg',
 
         # Your apps
         'olympic_history.users',
-
+        'olympic_history.olympic',
     )
 
     # https://docs.djangoproject.com/en/2.0/topics/http/middleware/
@@ -197,5 +199,19 @@ class Common(Configuration):
         'DEFAULT_AUTHENTICATION_CLASSES': (
             'rest_framework.authentication.SessionAuthentication',
             'rest_framework.authentication.TokenAuthentication',
+            'rest_framework.authentication.BasicAuthentication',
         )
     }
+
+    SWAGGER_SETTINGS = {
+        'SECURITY_DEFINITIONS': {
+            'basic': {
+                'type': 'basic'
+            }
+        },
+        'LOGIN_URL': 'rest_framework:login',
+        'LOGOUT_URL': 'rest_framework:logout',
+    }
+
+
+    DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
