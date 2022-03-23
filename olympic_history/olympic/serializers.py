@@ -9,7 +9,7 @@ from .models import (
     Sport,
 )
 
-class AtheleteSerializer(serializers.ModelSerializer):
+class AthleteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Athlete
         fields = [

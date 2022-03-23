@@ -10,10 +10,12 @@ from .views import (
     SportViewSet,
 )
 
+app_name = "olympic"
+
 router = SimpleRouter()
 
-router.register(r'athlete', AthleteViewSet, basename="athelte")
-router.register(r'athlete_event', AthleteEventViewSet, basename="athelte_event")
+router.register(r'athlete', AthleteViewSet, basename="athlete")
+router.register(r'athlete_event', AthleteEventViewSet, basename="athlete_event")
 router.register(r'city', AthleteEventViewSet, basename="city")
 router.register(r'event', EventViewSet, basename="event")
 router.register(r'games', GamesViewSet, basename="games")

@@ -11,7 +11,7 @@ from .models import (
 )
 
 from .serializers import (
-    AtheleteSerializer,
+    AthleteSerializer,
     AthleteEventSerializer,
     CitySerializer,
     EventSerializer,
@@ -21,7 +21,7 @@ from .serializers import (
 )
 
 class AthleteViewSet(ModelViewSet):
-    serializer_class = AtheleteSerializer
+    serializer_class = AthleteSerializer
     queryset = Athlete.objects.all().order_by('name')
 
 class AthleteEventViewSet(ModelViewSet):
